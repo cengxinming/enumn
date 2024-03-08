@@ -1,6 +1,35 @@
-# https://tea.xyz/what-is-this-file
----
-version: 1.0.0
-codeOwners:
-  - '0x3ABf34820BdC396EbCc8defABb48CD5052e38e6E'
-quorum: 1
+class TeaNetwork:
+    def __init__(self):
+        self.tea_types = {
+            1: "Black Tea",
+            2: "Green Tea",
+            3: "White Tea",
+            4: "Herbal Tea"
+        }
+
+    def display_menu(self):
+        print("Welcome to the Tea Main Network!")
+        print("Choose your tea type:")
+        for key, value in self.tea_types.items():
+            print(f"{key}. {value}")
+
+    def prepare_tea(self, tea_type):
+        print(f"Preparing {self.tea_types[tea_type]}...")
+        # Add code to boil water, steep tea, etc. based on tea type
+
+    def serve_tea(self):
+        print("Your tea is ready! Enjoy.")
+
+    def main(self):
+        self.display_menu()
+        choice = int(input("Enter the number corresponding to your desired tea type: "))
+        if choice in self.tea_types:
+            self.prepare_tea(choice)
+            self.serve_tea()
+        else:
+            print("Invalid choice. Please select a valid tea type.")
+
+# Usage example
+if __name__ == "__main__":
+    network = TeaNetwork()
+    network.main()
